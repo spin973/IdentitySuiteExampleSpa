@@ -1,0 +1,40 @@
+{
+  "Applications": [
+    {
+      "ApplicationType": "web",
+      "ClientId": "blazor",
+      "DisplayName": "Blazor Client",
+      "ClientType": "public",
+      "ConsentType": "explicit",
+      "RedirectUris": "[ \"https://localhost:5010/authentication/login-callback\" ]",
+      "PostLogoutRedirectUris": "[ \"https://localhost:5010/authentication/logout-callback\" ]",
+      "Permissions": "[ \"ept:authorization\", \"ept:end_session\", \"ept:token\", \"gt:authorization_code\", \"gt:refresh_token\", \"rst:code\", \"scp:email\", \"scp:profile\" ]",
+      "Requirements": "[ \"ft:pkce\" ]",
+      "Properties": "{\"urn:net:identitysuite:property:type\":\"1\"}"
+    },
+    {
+      "ApplicationType": "web",
+      "ClientId": "angular",
+      "DisplayName": "Angular Client",
+      "ClientType": "public",
+      "ConsentType": "explicit",
+      "RedirectUris": "[ \"http://localhost:4200\" ]",
+      "PostLogoutRedirectUris": "[ \"http://localhost:4200\" ]",
+      "Permissions": "[ \"ept:authorization\", \"ept:end_session\", \"ept:token\", \"gt:authorization_code\", \"gt:refresh_token\", \"rst:code\", \"scp:email\", \"scp:profile\" ]",
+      "Requirements": "[ \"ft:pkce\" ]",
+      "Properties": "{\"urn:net:identitysuite:property:type\":\"1\"}"
+    },
+    {
+      "ApplicationType": "web",
+      "ClientId": "react",
+      "DisplayName": "React Client",
+      "ClientType": "public",
+      "ConsentType": "explicit",
+      "RedirectUris": "[ \"http://localhost:3000/\" ]",
+      "PostLogoutRedirectUris": "[ \"http://localhost:3000/\" ]",
+      "Permissions": "[ \"ept:authorization\", \"ept:end_session\", \"ept:token\", \"gt:authorization_code\", \"gt:refresh_token\", \"rst:code\", \"scp:email\", \"scp:profile\" ]",
+      "Requirements": "[ \"ft:pkce\" ]",
+      "Properties": "{\"urn:net:identitysuite:property:type\":\"1\"}"
+    }
+  ]
+}

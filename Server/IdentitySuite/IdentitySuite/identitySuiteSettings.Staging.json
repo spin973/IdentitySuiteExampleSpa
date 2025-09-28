@@ -1,0 +1,142 @@
+{
+  "IdentitySuiteOptions": {
+    "Database": {
+      "ConnectionStrings": {
+        "SqlServerConnection": "",
+        "PostgreSqlConnection": "",
+        "MySqlConnection": ""
+      },
+      "Initialize": false,
+      "ApplyMigrations": false
+    },
+    "SupportedCultures": [
+      {
+        "Culture": "en-GB",
+        "Index": 0
+      }
+    ],
+    "EmailConfiguration": {
+      "Provider": "Smtp",
+      "FromName": "",
+      "From": "",
+      "Host": "",
+      "Port": 587,
+      "UserName": "",
+      "Password": ""
+    },
+    "Cors": {
+      "AllowedOrigins": [],
+      "AllowedMethods": [],
+      "AllowedHeaders": [],
+      "ExposedHeaders": [],
+      "AllowCredentials": false,
+      "PreflightMaxAge": 600
+    },
+    "RateLimiting": {
+      "Enabled": false,
+      "EnableMetrics": false,
+      "Policies": {
+        "oidc-critical-endpoints": {
+          "PermitLimit": 20,
+          "SegmentsPerWindow": 10,
+          "Window": "00:05:00",
+          "QueueLimit": 0,
+          "AutoReplenishment": true
+        },
+        "oidc-default-endpoints": {
+          "PermitLimit": 60,
+          "SegmentsPerWindow": 10,
+          "Window": "00:05:00",
+          "QueueLimit": 0,
+          "AutoReplenishment": true
+        },
+        "global-endpoints": {
+          "PermitLimit": 100,
+          "SegmentsPerWindow": 5,
+          "Window": "00:05:00",
+          "QueueLimit": 0,
+          "AutoReplenishment": true
+        }
+      },
+      "WhitelistedIPs": [],
+      "BlacklistedIPs": []
+    },
+    "LoginProviders": [],
+    "OpenIddictOptions": {
+      "Scopes": [
+        "openid",
+        "profile",
+        "email"
+      ],
+      "Claims": [],
+      "Audiences": [],
+      "FlowConfiguration": {
+        "AllowAuthorizationCodeFlow": true,
+        "AllowHybridFlow": false,
+        "AllowClientCredentialsFlow": false,
+        "AllowRefreshTokenFlow": true,
+        "AllowPasswordFlow": false,
+        "AllowDeviceAuthorizationFlow": false,
+        "AllowImplicitFlow": false,
+        "RequireProofKeyForCodeExchange": true,
+        "RequirePushedAuthorizationRequests": true,
+        "EnableUserInfoEndpoint": true,
+        "AcceptAnonymousClients": false
+      },
+      "TokenConfiguration": {
+        "UseReferenceAccessTokens": true,
+        "UseReferenceRefreshTokens": true
+      },
+      "AspNetCoreConfiguration": {
+        "EnableStatusCodePagesIntegration": true,
+        "EnableAuthorizationEndpointPassthrough": true,
+        "EnableTokenEndpointPassthrough": true,
+        "EnableUserInfoEndpointPassthrough": true,
+        "EnableEndSessionEndpointPassthrough": true,
+        "EnableEndUserVerificationEndpointPassthrough": false
+      },
+      "LifeTimeConfiguration": {
+        "AccessTokenLifetime": "01:00:00",
+        "IdentityTokenLifetime": "00:30:00",
+        "AuthorizationCodeLifetime": "00:05:00",
+        "UserCodeLifetime": "00:10:00",
+        "DeviceCodeLifetime": "00:30:00",
+        "RefreshTokenLifetime": "14.00:00:00"
+      },
+      "ValidationConfiguration": {
+        "EnableAuthorizationEntryValidation": false,
+        "EnableTokenEntryValidation": false
+      },
+      "SecuritySettings": {
+        "UseDataProtection": true,
+        "EnableAccessTokenEncryption": true,
+        "Certificates": {
+          "SigningCertificatePath": "",
+          "EncryptionCertificatePath": ""
+        }
+      }
+    },
+    "IdentityOptions": {
+      "RequiredLength": 6,
+      "RequireNonAlphanumeric": true,
+      "RequireLowercase": true,
+      "RequireUppercase": true,
+      "RequireDigit": true,
+      "AllowedPasswordRegex": "^[\\w,;.+\\-!|$^()@\\[\\]]+$",
+      "RequiredUniqueChars": 1,
+      "AllowedForNewUsers": true,
+      "DefaultLockoutTimeSpanInMinutes": 5,
+      "MaxFailedAccessAttempts": 5,
+      "AllowedUserNameRegex": "^[a-zA-Z0-9]+([._+-][a-zA-Z0-9]+)*$",
+      "RequireUniqueEmail": true,
+      "RequireConfirmedEmail": true,
+      "RequireConfirmedAccount": false,
+      "RequireConfirmedPhoneNumber": false,
+      "ProtectPersonalData": false,
+      "EnableUserRegistration": true,
+      "MaxLengthForKeys": 0
+    },
+    "LicenseKey": "",
+    "GoogleFontKey": ""
+  }
+}

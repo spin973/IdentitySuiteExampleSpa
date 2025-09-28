@@ -1,0 +1,30 @@
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5rem;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    align-items: center;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #0078d4;
+    color: white;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+    button:hover {
+        background-color: #005a9e;
+        cursor: pointer;
+    }

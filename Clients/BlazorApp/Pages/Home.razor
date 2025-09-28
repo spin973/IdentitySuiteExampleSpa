@@ -1,0 +1,44 @@
+﻿@page "/"
+
+<PageTitle>Home</PageTitle>
+
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@inject NavigationManager Navigation
+@inject IAccessTokenProvider TokenProvider
+
+<div class="home-container">
+    <h1>Welcome to your Blazor Webassembly OIDC App</h1>
+    <p>This application uses OpenID Connect to authenticate users.</p>
+
+    <div class="button-group">
+        <AuthorizeView>
+            <Authorized>
+                <div>Welcome, @context.User.Identity?.Name!</div>
+                <button @onclick="Logout">Logout</button>
+                <button @onclick="ShowProfile">View profile</button>
+            </Authorized>
+            <NotAuthorized>
+                <div>You are not authenticated.</div>
+                <button @onclick="Login">Login</button>
+            </NotAuthorized>
+        </AuthorizeView>
+    </div>
+</div>
+
+@code {
+    private void Logout()
+    {
+        Navigation.NavigateToLogout("authentication/logout");
+    }
+
+    private void Login()
+    {
+        Navigation.NavigateToLogin("authentication/login");
+    }
+
+    private void ShowProfile()
+    {
+        Navigation.NavigateTo("profile");
+    }
+}

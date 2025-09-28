@@ -1,0 +1,10 @@
+<div class="home-container">
+  <h1>Welcome to your Angular OIDC App</h1>
+  <p>This application uses OpenID Connect to authenticate users.</p>
+
+  <div class="button-group">
+    <button *ngIf="!isLoggedIn()" (click)="login()">Login</button>
+    <button *ngIf="isLoggedIn()" (click)="logout()">Logout</button>
+    <button *ngIf="isLoggedIn()" routerLink="/profile">View profile</button>
+  </div>
+</div>

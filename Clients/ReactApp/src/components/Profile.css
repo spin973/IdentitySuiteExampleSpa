@@ -1,0 +1,13 @@
+﻿.profile {
+    margin: 2rem;
+    font-family: sans-serif;
+}
+
+    .profile ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .profile li {
+        margin: 0.5rem 0;
+    }

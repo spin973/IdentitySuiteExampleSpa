@@ -1,0 +1,14 @@
+<h2>User Claims</h2>
+
+<div *ngIf="claims">
+  <ul>
+    <li *ngFor="let key of claimKeys">
+      <strong>{{ key }}:</strong> {{ claims[key] }}
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="!claims">
+  <p>No claims available.</p>
+</div>
+
