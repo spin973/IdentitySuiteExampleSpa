@@ -1,9 +1,0 @@
-﻿{
-  "BootstrapConfiguration": {
-    "Provider": "FileSystem",
-    "FallbackMode": "VaultOptional",
-    "FileSystem": {
-      "ProtectionMode": "Encrypted"
-    }
-  }
-}
