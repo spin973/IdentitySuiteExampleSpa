@@ -2,7 +2,7 @@
   "IdentitySuiteOptions": {
     "Database": {
       "ConnectionStrings": {
-        "SqlServerConnection": "Server=(localdb)\\mssqllocaldb;Database=IdentitySuiteDb;Trusted_Connection=True;MultipleActiveResultSets=true",
+        "SqlServerConnection": "Server=(localdb)\\mssqllocaldb;Database=IdentitySuiteDb.Spa;Trusted_Connection=True;MultipleActiveResultSets=true",
         "PostgreSqlConnection": "",
         "MySqlConnection": ""
       },
@@ -22,7 +22,8 @@
       "Host": "",
       "Port": 587,
       "UserName": "",
-      "Password": ""
+      "Password": "",
+      "SendGridUri": "https://api.sendgrid.com"
     },
     "Cors": {
       "AllowedOrigins": [
@@ -38,7 +39,6 @@
     },
     "RateLimiting": {
       "Enabled": false,
-      "EnableMetrics": false,
       "Policies": {
         "oidc-critical-endpoints": {
           "PermitLimit": 20,
@@ -63,16 +63,25 @@
         }
       },
       "WhitelistedIPs": [],
-      "BlacklistedIPs": []
+      "BlacklistedIPs": [],
+      "EnableMetrics": false
     },
     "LoginProviders": [],
     "OpenIddictOptions": {
       "Scopes": [
         "openid",
         "profile",
-        "email"
+        "email",
+        "offline_access"
       ],
-      "Claims": [],
+      "Claims": [
+        "sub",
+        "name",
+        "given_name",
+        "family_name",
+        "email",
+        "email_verified"
+      ],
       "Audiences": [],
       "FlowConfiguration": {
         "AllowAuthorizationCodeFlow": true,
@@ -96,11 +105,11 @@
         "EnableAuthorizationEndpointPassthrough": true,
         "EnableTokenEndpointPassthrough": true,
         "EnableUserInfoEndpointPassthrough": true,
-        "EnableEndSessionEndpointPassthrough": true,
-        "EnableEndUserVerificationEndpointPassthrough": false
+        "EnableEndUserVerificationEndpointPassthrough": false,
+        "EnableEndSessionEndpointPassthrough": true
       },
       "LifeTimeConfiguration": {
-        "AccessTokenLifetime": "01:00:00",
+        "AccessTokenLifetime": "00:30:00",
         "IdentityTokenLifetime": "00:30:00",
         "AuthorizationCodeLifetime": "00:05:00",
         "UserCodeLifetime": "00:10:00",
@@ -108,39 +117,61 @@
         "RefreshTokenLifetime": "14.00:00:00"
       },
       "ValidationConfiguration": {
-        "EnableAuthorizationEntryValidation": false,
+        "EnableAuthorizationEntryValidation": true,
         "EnableTokenEntryValidation": false
       },
       "SecuritySettings": {
         "UseDataProtection": true,
         "EnableAccessTokenEncryption": true,
         "Certificates": {
-          "SigningCertificatePath": "",
-          "EncryptionCertificatePath": ""
+          "Mode": "Builtin",
+          "Signing": {
+            "ForceRotation": false,
+            "Source": "FileSystem",
+            "Thumbprint": "",
+            "StoreLocation": "CurrentUser",
+            "StoreName": "My"
+          },
+          "Encryption": {
+            "ForceRotation": false,
+            "Source": "FileSystem",
+            "Thumbprint": "",
+            "StoreLocation": "CurrentUser",
+            "StoreName": "My"
+          },
+          "ExpiredCertificates": [],
+          "NotifyEmail": "",
+          "CertificateExpiryAlertThresholdDays": 7
         }
       }
     },
     "IdentityOptions": {
-      "RequiredLength": 6,
+      "RequiredLength": 8,
       "RequireNonAlphanumeric": true,
       "RequireLowercase": true,
       "RequireUppercase": true,
       "RequireDigit": true,
+      "RequiredUniqueChars": 5,
       "AllowedPasswordRegex": "^[\\w,;.\u002B\\-!|$^()@\\[\\]]\u002B$",
-      "RequiredUniqueChars": 1,
       "AllowedForNewUsers": true,
-      "DefaultLockoutTimeSpanInMinutes": 5,
+      "DefaultLockoutTimeSpanInMinutes": 15,
       "MaxFailedAccessAttempts": 5,
-      "AllowedUserNameRegex": "^[a-zA-Z0-9]\u002B([._\u002B-][a-zA-Z0-9]\u002B)*$",
       "RequireUniqueEmail": true,
+      "AllowedUserNameRegex": "^[a-zA-Z0-9]\u002B([._\u002B-][a-zA-Z0-9]\u002B)*$",
       "RequireConfirmedEmail": true,
       "RequireConfirmedAccount": false,
       "RequireConfirmedPhoneNumber": false,
       "ProtectPersonalData": false,
+      "MaxLengthForKeys": 0,
       "EnableUserRegistration": true,
-      "MaxLengthForKeys": 0
+      "EnablePasskeyLogin": true,
+      "EnableSocialLogin": true,
+      "DefaultUserGroup": "User",
+      "SoftEmailVerification": false,
+      "EnableEmailAuthenticator": false,
+      "EnablePhoneAuthenticator": false
     },
-    "LicenseKey": "",
-    "GoogleFontKey": ""
+    "GoogleFontKey": "",
+    "LicenseKey": ""
   }
 }

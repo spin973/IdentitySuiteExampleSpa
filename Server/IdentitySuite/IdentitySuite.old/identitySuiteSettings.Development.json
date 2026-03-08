@@ -2,7 +2,7 @@
   "IdentitySuiteOptions": {
     "Database": {
       "ConnectionStrings": {
-        "SqlServerConnection": "",
+        "SqlServerConnection": "Server=(localdb)\\mssqllocaldb;Database=IdentitySuiteDb.Spa;Trusted_Connection=True;MultipleActiveResultSets=true",
         "PostgreSqlConnection": "",
         "MySqlConnection": ""
       },
@@ -25,11 +25,15 @@
       "Password": ""
     },
     "Cors": {
-      "AllowedOrigins": [],
+      "AllowedOrigins": [
+        "https://localhost:5010",
+        "http://localhost:4200",
+        "http://localhost:3000"
+      ],
       "AllowedMethods": [],
       "AllowedHeaders": [],
       "ExposedHeaders": [],
-      "AllowCredentials": false,
+      "AllowCredentials": true,
       "PreflightMaxAge": 600
     },
     "RateLimiting": {
@@ -66,17 +70,9 @@
       "Scopes": [
         "openid",
         "profile",
-        "email",
-        "offline_access"
+        "email"
       ],
-      "Claims": [
-        "sub",
-        "name",
-        "given_name",
-        "family_name",
-        "email",
-        "email_verified"
-      ],
+      "Claims": [],
       "Audiences": [],
       "FlowConfiguration": {
         "AllowAuthorizationCodeFlow": true,
@@ -104,7 +100,7 @@
         "EnableEndUserVerificationEndpointPassthrough": false
       },
       "LifeTimeConfiguration": {
-        "AccessTokenLifetime": "00:30:00",
+        "AccessTokenLifetime": "01:00:00",
         "IdentityTokenLifetime": "00:30:00",
         "AuthorizationCodeLifetime": "00:05:00",
         "UserCodeLifetime": "00:10:00",
@@ -112,57 +108,36 @@
         "RefreshTokenLifetime": "14.00:00:00"
       },
       "ValidationConfiguration": {
-        "EnableAuthorizationEntryValidation": true,
+        "EnableAuthorizationEntryValidation": false,
         "EnableTokenEntryValidation": false
       },
       "SecuritySettings": {
         "UseDataProtection": true,
         "EnableAccessTokenEncryption": true,
         "Certificates": {
-          "Mode": "Builtin",
-          "Signing": {
-            "ForceRotation": false,
-            "Source": "FileSystem",
-            "Thumbprint": "",
-            "StoreLocation": "CurrentUser",
-            "StoreName": "My"
-          },
-          "Encryption": {
-            "ForceRotation": false,
-            "Source": "FileSystem",
-            "Thumbprint": "",
-            "StoreLocation": "CurrentUser",
-            "StoreName": "My"
-          },
-          "ExpiredCertificates": [],
-          "NotifyEmail": "",
-          "CertificateExpiryAlertThresholdDays": 7
+          "SigningCertificatePath": "",
+          "EncryptionCertificatePath": ""
         }
       }
     },
     "IdentityOptions": {
-      "RequiredLength": 8,
+      "RequiredLength": 6,
       "RequireNonAlphanumeric": true,
       "RequireLowercase": true,
       "RequireUppercase": true,
       "RequireDigit": true,
-      "AllowedPasswordRegex": "^[\\w,;.+\\-!|$^()@\\[\\]]+$",
-      "RequiredUniqueChars": 5,
+      "AllowedPasswordRegex": "^[\\w,;.\u002B\\-!|$^()@\\[\\]]\u002B$",
+      "RequiredUniqueChars": 1,
       "AllowedForNewUsers": true,
-      "DefaultLockoutTimeSpanInMinutes": 15,
+      "DefaultLockoutTimeSpanInMinutes": 5,
       "MaxFailedAccessAttempts": 5,
-      "AllowedUserNameRegex": "^[a-zA-Z0-9]+([._+-][a-zA-Z0-9]+)*$",
+      "AllowedUserNameRegex": "^[a-zA-Z0-9]\u002B([._\u002B-][a-zA-Z0-9]\u002B)*$",
       "RequireUniqueEmail": true,
       "RequireConfirmedEmail": true,
       "RequireConfirmedAccount": false,
       "RequireConfirmedPhoneNumber": false,
       "ProtectPersonalData": false,
       "EnableUserRegistration": true,
-      "EnableSocialLogin": true,
-      "EnablePasskeyLogin": true,
-      "SoftEmailVerification": false,
-      "EnableEmailAuthenticator": false,
-      "EnablePhoneAuthenticator": false,
       "MaxLengthForKeys": 0
     },
     "LicenseKey": "",

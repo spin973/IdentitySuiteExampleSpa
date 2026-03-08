@@ -1,10 +1,6 @@
 {
   "SecurityHeader": {
-    "FormSrcUris": [
-      "http://localhost:4200/",
-      "https://localhost:5010/authentication/login-callback",
-      "http://localhost:3000/"
-    ],
+    "FormSrcUris": [],
     "FontSrcUris": [
       "https://cdnjs.cloudflare.com",
       "https://fonts.gstatic.com"
