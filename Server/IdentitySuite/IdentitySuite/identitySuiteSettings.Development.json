@@ -172,6 +172,17 @@
       "EnablePhoneAuthenticator": false
     },
     "GoogleFontKey": "",
-    "LicenseKey": ""
+    "LicenseKey": "",
+    "Logging": {
+      "MinimumLevel": "Information",
+      "LevelOverrides": {
+        "Microsoft": "Warning",
+        "System": "Warning",
+        "Microsoft.Hosting.Lifetime": "Information",
+        "Quartz": "Warning"
+      },
+      "FileSizeLimitBytes": 9437184,
+      "RetainedFileCountLimit": 10
+    }
   }
 }
